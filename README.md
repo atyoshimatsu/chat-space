@@ -40,3 +40,19 @@
 ### Association
 - belongs_to :group
 - belongs_to :user
+
+## messagesテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|body|text|null: true|
+|image|string|null: true|
+|user_id|string|null: false, foreign_key: true|
+|group_id|string|null: false, foreign_key: true|
+
+### index
+- add_index :messages, [:user_id, :group_id]
+
+### Association
+- belongs_to :group
+- belongs_to :user

@@ -26,3 +26,17 @@
 
 ### Association
 - has_many :users through: :groups_users
+
+## groups_usersテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|user_id|integer|null: false, foreign_key: true|
+|group_id|integer|null: false, foreign_key: true|
+
+### index
+- add_index :groups_users, [:user_id, :group_id]
+
+### Association
+- belongs_to :group
+- belongs_to :user

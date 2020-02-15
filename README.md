@@ -48,8 +48,8 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|body|text|null: true|
-|image|string|null: true|
+|body|text||
+|image|string||
 |user_id|integer|null: false, foreign_key: true|
 |group_id|integer|null: false, foreign_key: true|
 

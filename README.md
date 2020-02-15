@@ -20,10 +20,10 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|groupname|string|null: false, unique: true|
+|name|string|null: false, unique: true|
 
 ### index
-- add_index :groups, :groupname
+- add_index :groups, :name
 
 ### Association
 - has_many :users through: :groups_users

@@ -20,6 +20,7 @@
         &__name {
           line-height: 20px;
           font-size: 16px;
+          font-weight: bold;
           color: #ffffff;
         }
         &__icons{
@@ -43,6 +44,23 @@
       height: calc(100vh - 100px);
       width: 300px;
       background-color: #2f3e51;
+      .group-info {
+        height: 91px;
+        width: 300px;
+        padding-top: 20px;
+        &__name {
+          width: 260px;
+          font-size: 15px;
+          color: #ffffff;
+          margin: 0px 20px 5px 20px;
+        }
+        &__message {
+          width: 260px;
+          font-size: 11px;
+          color: #ffffff;
+          margin: 5px 20px 40px 20px;
+        }
+      }
     }
   }
   .main-chat {

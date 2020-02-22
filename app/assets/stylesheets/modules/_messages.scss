@@ -21,7 +21,6 @@
           @include block-set(100%, 60px, transparent);
           &__btn-edit {
             @include inline-set(100%, white, 16px, normal, right);
-            text-decoration: none;
           }
           &__btn-cog {
             @include inline-set(100%, white, 16px, normal, right);
@@ -69,7 +68,6 @@
         margin: auto;
         padding: auto 20px;
         border: solid 1px $light-blue;
-        text-decoration: none;
       }
     }
     &__message-list {

@@ -64,11 +64,11 @@
         }
       }
       .edit-btn {
-        @include inline-set(40px, $btn-blue, 16px, normal, center);
+        @include inline-set(40px, $light-blue, 16px, normal, center);
         width: 72px;
         margin: auto;
         padding: auto 20px;
-        border: solid 1px $btn-blue;
+        border: solid 1px $light-blue;
         text-decoration: none;
       }
     }
@@ -121,7 +121,7 @@
           }  
         }
         &__send-btn {
-          @include block-set(100%, 100px, $btn-blue);
+          @include block-set(100%, 100px, $light-blue);
           @include inline-set(16px, white, 16px, normal, center);
           margin-left: 15px;
           cursor: pointer;

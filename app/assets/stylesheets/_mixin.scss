@@ -4,6 +4,7 @@
   font-size: $size;
   font-weight: $weight;
   text-align: $position;
+  text-decoration: none;
 }
 
 @mixin block-set($hg, $wd, $bgclr) {

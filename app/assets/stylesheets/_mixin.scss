@@ -1,0 +1,13 @@
+@mixin inline-set($line-hg, $clr, $size, $weight, $position) {
+  line-height: $line-hg;
+  color: $clr;
+  font-size: $size;
+  font-weight: $weight;
+  text-align: $position;
+}
+
+@mixin block-set($hg, $wd, $bgclr) {
+  height: $hg;
+  width: $wd;
+  background-color: $bgclr;
+}

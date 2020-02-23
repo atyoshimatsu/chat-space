@@ -1,0 +1,10 @@
+.message-info
+  .message-info__top
+    .message-info__top__name
+      = message.user.name
+    .message-info__top__time
+      = message.created_at
+  .message-info__message
+    - if message.body.present?
+      = message.body
+    = image_tag message.image.url if message.image.present?

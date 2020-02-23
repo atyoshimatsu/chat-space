@@ -1,0 +1,6 @@
+- if @group.users.present?
+  Members:  
+  - @group.users.each do |user|
+    = user.name
+- else
+  メンバーがいません

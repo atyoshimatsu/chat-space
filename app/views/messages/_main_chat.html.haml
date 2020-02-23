@@ -2,41 +2,20 @@
   .main-chat__group-info
     .group-top
       .group-top__group-name
-        sample group
+        = @group.name
       .group-top__members
-        Member : test01 test02
-    = link_to "#", class: "edit-btn" do
+        = render 'member'
+    = link_to edit_group_path(@group), class: "edit-btn" do
       Edit
   .main-chat__message-list
-    .message-info
-      .message-info__top
-        .message-info__top__name
-          test01
-        .message-info__top__time
-          2020/02/17(Mon) 21:37:06
-      .message-info__message
-        sample message 1
-    .message-info
-      .message-info__top
-        .message-info__top__name
-          test02
-        .message-info__top__time
-          2020/02/17(Mon) 21:37:38
-      .message-info__message
-        sample message 2
-    .message-info
-      .message-info__top
-        .message-info__top__name
-          test01
-        .message-info__top__time
-          2020/02/17(Mon) 21:37:52
-      .message-info__message
-        sample message 3    
+    = render @messages
+
   .main-chat__message-form
-    %form{class: "main-chat__message-form__input-form"}
-      .main-chat__message-form__input-form__box
-        %input{type: "text", placeholder: "type a message", class: "main-chat__message-form__input-form__box__text"}
-        %label{class: "main-chat__message-form__input-form__box__image"}
-          = icon('fas', 'image')
-          %input{type: "file", class: "main-chat__message-form__input-form__box__image__file-choose"}
-      %input{type: "submit", value: "Send", class: "main-chat__message-form__input-form__send-btn"}
+    .main-chat__message-form__input-form
+      = form_for [@group, @message] do |f|
+        = f.text_field :body, placeholder: "type a message", class: "main-chat__message-form__input-form__text"
+        .main-chat__message-form__input-form__mask
+          = f.label :image, class: "main-chat__message-form__input-form__mask-image" do
+            = icon('fas', 'image', class: "main-chat__message-form__input-form__mask-image__icon")
+            = f.file_field :image, class: "main-chat__message-form__input-form__mask-image__file"
+        = f.submit "Send", class: "main-chat__message-form__input-form__send-btn"

@@ -73,6 +73,7 @@
     &__message-list {
       @include block-set(calc(100vh - #{$header-height} - #{$form-height}), $main-width, #fafafa);
       padding: 35px 40px;
+      overflow: scroll;
       .message-info {
         margin-bottom: 46px;
         &__top {

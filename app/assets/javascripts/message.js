@@ -1,7 +1,29 @@
 $(function(){
+
+  var reloadMessages = function() {
+    var last_message_id = $('.message-info:last').data("message-id");
+    $.ajax({
+      url: "api/messages",
+      type: 'GET',
+      dataType: 'json',
+      data: {id: last_message_id}
+    })
+    .done(function(messages) {
+      var insertHTML = '';
+      $.each(messages, function(i, message) {
+        insertHTML += buildHTML(message)
+      });
+      $('.main-chat__message-list').append(insertHTML);
+      $('.main-chat__message-list').animate({ scrollTop: $('.main-chat__message-list')[0].scrollHeight});
+    })
+    .fail(function() {
+      alert('error');
+    });
+  };
+
   function buildHTML(message){
     if(message.image) {
-      var html = `<div class="message-info">
+      var html = `<div class="message-info" data-message-id="${message.id}">
                     <div class="message-info__top">
                       <div class="message-info__top__name">
                        ${message.user_name}
@@ -17,7 +39,7 @@ $(function(){
                   </div>`
       return html;
     } else {
-      var html = `<div class="message-info">
+      var html = `<div class="message-info" data-message-id="${message.id}">
                     <div class="message-info__top">
                       <div class="message-info__top__name">
                         ${message.user_name}
@@ -33,6 +55,7 @@ $(function(){
       return html;
     };
   }
+
   $('#new_message').on('submit', function(e){
     e.preventDefault();
     var formData = new FormData(this);
@@ -56,4 +79,8 @@ $(function(){
       alert("メッセージ送信に失敗しました");
     });
   })
+
+  if (document.location.href.match(/\/groups\/\d+\/messages/)) {
+    setInterval(reloadMessages, 7000);
+  }
 });

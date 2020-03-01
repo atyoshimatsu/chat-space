@@ -31,6 +31,7 @@
     }
     &__group-list {
       @include block-set(calc(100vh - #{$header-height}), $side-bar-width, #2f3e51);
+      overflow: scroll;
       .group-info {
         @include block-set(91px, $side-bar-width, transparent);
         padding: 20px;

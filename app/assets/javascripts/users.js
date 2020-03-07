@@ -44,7 +44,10 @@ $(function(){
       $("#user-search-result").empty();
       if (users.length != 0){
         users.forEach(function(user) {
-          addUser(user);
+          let existUsers = $('.js-add-user .chat-group-user__name').text();
+          if (existUsers.search(user.name) == -1) {
+            addUser(user);
+          }
         });
       } else if (input.length == 0) {
         return false;

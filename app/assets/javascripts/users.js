@@ -44,8 +44,12 @@ $(function(){
       $("#user-search-result").empty();
       if (users.length != 0){
         users.forEach(function(user) {
-          let existUsers = $('.js-add-user .chat-group-user__name').text();
-          if (existUsers.search(user.name) == -1) {
+          let chatMembers = [];
+          $('.js-add-user .chat-group-user__name').each(function() {
+            name = $(this).text().replace(/\r?\n/g,"");
+            chatMembers.push(name);
+          });
+          if ($.inArray(user.name, chatMembers) == -1) {
             addUser(user);
           }
         });
